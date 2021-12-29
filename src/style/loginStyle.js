@@ -41,12 +41,13 @@ const styles = StyleSheet.create({
     },
     inputGroup: {
         width: '100%',
+        height: 0.3* windowHeight,
         marginTop: 35,
         alignItems: 'center'
     },
     emailInput: {
         width: '85%',
-        height: 50,
+        height: '25%',
         fontSize: 13,
         backgroundColor: '#FFFFFF',
         paddingLeft: 30,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     },
     passwordInput: {
         width: '85%',
-        height: 50,
+        height: '25%',
         fontSize: 13,
         backgroundColor: '#FFFFFF',
         paddingLeft: 30,
@@ -65,15 +66,15 @@ const styles = StyleSheet.create({
         height: 16,
         fontSize: 14,
         color: '#50C2C9',
-        marginTop: 22
+        marginTop: 0.025 * windowHeight
     },
     signInButton: {
         width: '85%',
-        height: 62,
+        height: '30%',
         backgroundColor: '#50C2C9',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 24
+        marginTop: 0.025 * windowHeight
     },
     signInText: {
         fontSize: 18,
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     },
     tineAccount: {
         flexDirection: 'row',
-        marginTop: 22,
+        marginTop: 0.06 * windowHeight,
         justifyContent: 'center'
     },
     text1: {
