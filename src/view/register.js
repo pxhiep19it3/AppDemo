@@ -1,7 +1,8 @@
 
 
-import React from 'react';
-
+import React, { useState, useContext } from 'react';
+import {AuthContext} from './AuthProvider';
+import auth from '@react-native-firebase/auth';
 import {
   SafeAreaView,
   StyleSheet,
@@ -27,6 +28,17 @@ const widthWindow = Dimensions.get('window').width
 const heightWindow = Dimensions.get('window').height
 
 const Register = ({ navigation }) => {
+
+  const [email, setemail] = useState();
+  const [password, setpassword] = useState();
+  const register = async(email, password) => {
+    try{
+      await auth().createUserWithEmailAndPassword(email, password);
+    }catch(e) {
+        console.log(e);
+    }
+  }
+
   return (
     <View style={styles.bg}>
         <View style={styles.view1}>
@@ -43,15 +55,21 @@ const Register = ({ navigation }) => {
             <Text style={styles.text2}>Let’s help you meet up your tasks</Text>
         </View>
         <View style={styles.view3}>
-            <TextInput style={styles.inputText} placeholder='Enter your full name' placeholderTextColor={'#000000'}></TextInput>
-            <TextInput style={styles.inputText} placeholder='Enter your email' placeholderTextColor={'#000000'}></TextInput>
-            <TextInput style={styles.inputText} placeholder='Enter password' placeholderTextColor={'#000000'}></TextInput>
+            <TextInput style={styles.inputText} placeholder='Enter your full name' placeholderTextColor={'#000000'}
+              
+            ></TextInput>
+            <TextInput style={styles.inputText} placeholder='Enter your email' placeholderTextColor={'#000000'}
+              onChangeText = {(userEmail) => setemail(userEmail)} autoCapitalize = 'none'
+            ></TextInput>
+            <TextInput style={styles.inputText} placeholder='Enter password' placeholderTextColor={'#000000'}
+              onChangeText = {(userPassword) => setpassword(userPassword)} autoCapitalize = 'none'
+            ></TextInput>
             <TextInput style={styles.inputText} placeholder='Confirm Password' placeholderTextColor={'#000000'}></TextInput>
         </View>
         <View style={styles.view5}>
             <TouchableOpacity style={styles.bt1}
             onPress={() => {
-                navigation.navigate('Login');
+                register(email, password);
             }}>
                 <Text style={styles.textBt}>Register</Text>
             </TouchableOpacity>
