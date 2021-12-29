@@ -44,7 +44,7 @@ const Start = ({ navigation }) => {
         <View style={styles.view5}>
             <TouchableOpacity style={styles.bt1}
             onPress={() => {
-                navigation.navigate('Register');
+                navigation.navigate('Login');
             }}>
                 <Text style={styles.text2}>Get Started</Text>
             </TouchableOpacity>
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
   textStart: {
       color: '#000000',
       fontSize: 18,
-      fontFamily: 'Poppins',
       fontWeight: '600',
   },
   view4: {
@@ -93,7 +92,6 @@ const styles = StyleSheet.create({
   text1: {
     color: '#000000',
     fontSize: 13,
-    fontFamily: 'Poppins',
     fontWeight: '400',
     textAlign: 'center'
   },
@@ -113,7 +111,6 @@ const styles = StyleSheet.create({
   text2: {
     color: '#FFFFFF',
     fontSize: 18,
-    fontFamily: 'Poppins',
     fontWeight: '600',
     textAlign: 'center'
   }

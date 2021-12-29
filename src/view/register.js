@@ -28,11 +28,16 @@ const heightWindow = Dimensions.get('window').height
 
 const Register = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.bg}>
+    <View style={styles.bg}>
         <View style={styles.view1}>
             <Image source={require('../img/top.png')}></Image>
             <Image source={require('../img/left.png')} style={styles.imgLeft}></Image>
         </View>
+        <TouchableOpacity style = {styles.backButton} onPress={() => {
+                navigation.goBack();
+            }}>
+        <Image source = {require('../img/back.png')} style = {styles.imgBack} resizeMode = 'contain'/>
+        </TouchableOpacity>
         <View style={styles.view2}>
             <Text style={styles.text1}>Welcome Onboard!</Text>
             <Text style={styles.text2}>Let’s help you meet up your tasks</Text>
@@ -54,7 +59,7 @@ const Register = ({ navigation }) => {
         <View style={styles.view6}>
         <Text style={styles.text3}>Already have an account ? <Text style={{color: '#50C2C9'}} onPress={() => { navigation.navigate('Login')}} >Sign In</Text></Text>
         </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -67,6 +72,17 @@ const styles = StyleSheet.create({
     width: '100%', 
     height: '100%', 
     backgroundColor: '#E5E5E5'
+  },
+  backButton: {
+    position: 'absolute',
+    top: '7%',
+    left: '5%',
+    width: '15%',
+    height: '5%',
+  },
+  imgBack: {
+    width: '100%',
+    height: '100%'
   },
   view1: {
       width: '100%',
@@ -89,14 +105,12 @@ const styles = StyleSheet.create({
   text1: {
     color: '#000000',
     fontSize: 18,
-    fontFamily: 'Poppins',
     fontWeight: '600',
     textAlign: 'center'
   },
   text2: {
     color: '#000000',
     fontSize: 13,
-    fontFamily: 'Poppins',
     fontWeight: '400',
     textAlign: 'center'
   },
@@ -124,7 +138,6 @@ const styles = StyleSheet.create({
   textBt: {
     color: '#FFFFFF',
     fontSize: 18,
-    fontFamily: 'Poppins',
     fontWeight: '600',
     textAlign: 'center'
   },
@@ -138,7 +151,6 @@ const styles = StyleSheet.create({
  text3: {
     color: '#000000',
     fontSize: 14,
-    fontFamily: 'Poppins',
     fontWeight: '400',
  }
 });

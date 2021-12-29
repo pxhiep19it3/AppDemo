@@ -34,8 +34,8 @@ const App = () => {
       <StatusBar backgroundColor="white" barStyle="light-content" hidden={true} />
       <Stack.Navigator initialRouteName='Start' screenOptions={{headerShown: false}}>
         <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );

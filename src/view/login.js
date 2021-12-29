@@ -1,58 +1,36 @@
+import React from 'react'
+import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native'
+import styles from '../style/loginStyle'
 
+const login = ({navigation}) => {
+    return (
+        <View style = {styles.container}>
+            <Image style = {styles.image} source = {require('../img/top.png')} resizeMode = 'contain'/>
+            <Image style = {styles.image} source = {require('../img/left.png')} resizeMode = 'contain'/>
 
-import React from 'react';
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
-import { clearErrors } from 'react-native/Libraries/LogBox/Data/LogBoxData';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const widthWindow = Dimensions.get('window').width
-const heightWindow = Dimensions.get('window').height
-
-const Login = ({ navigation }) => {
-  return (
-    <SafeAreaView style={styles.bg}>
-        <View style={styles.view1}>
-            <Image source={require('../img/top.png')}></Image>
-            <Image source={require('../img/left.png')} style={styles.imgLeft}></Image>
+            <View style = {styles.viewTitle}>
+                <Text style = {styles.title}>Welcome Back!</Text>
+            </View>
+            <View style = {styles.containerBorder}>
+                <View style = {styles.border}>
+                    <Image style = {styles.imageBorder} source = {require('../img/undraw_my_notifications_rjej.png')} resizeMode = 'contain' />
+                </View>
+            </View>
+            <View style = {styles.inputGroup}>
+                <TextInput style = {styles.emailInput} placeholder = 'Enter your email'/>
+                <TextInput style = {styles.passwordInput} placeholder = 'Enter your password'/>
+                <Text style = {styles.forgotPassword}>Forgot password</Text>
+                <TouchableOpacity style = {styles.signInButton} >
+                    <Text style = {styles.signInText}>Sign in</Text>
+                </TouchableOpacity>
+            </View>
+            <View style = {styles.tineAccount}>
+                <Text style = {styles.text1}>Don't have an account ? </Text>
+                <Text style = {styles.text2} onPress={() => {
+                navigation.navigate('Register');
+            }}>Sign up</Text>
+            </View>
         </View>
-        <Text style={styles.text1}>Welcome to Login Screen!</Text>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-    imgLeft: {
-        position: 'absolute',
-        top: 0,
-    },
-    bg: {
-      width: '100%', 
-      height: '100%', 
-      backgroundColor: '#E5E5E5'
-    },
-    text1: {
-      color: 'blue',
-      fontSize: 30,
-      marginTop: '55%',
-      textAlign: 'center'
-    }
-});
-
-export default Login;
+    )
+}
+export default login;
