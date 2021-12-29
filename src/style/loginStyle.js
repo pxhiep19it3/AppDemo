@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     inputGroup: {
         width: '100%',
         height: 0.3* windowHeight,
-        marginTop: 35,
+        marginTop: 0.05 * windowHeight,
         alignItems: 'center'
     },
     emailInput: {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         paddingLeft: 30,
         borderRadius: 22,
-        marginTop: 21
+        marginTop: 0.03 * windowHeight
     },
     forgotPassword: {
         height: 16,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     signInButton: {
         width: '85%',
-        height: '30%',
+        height: 0.08 * windowHeight,
         backgroundColor: '#50C2C9',
         justifyContent: 'center',
         alignItems: 'center',
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     },
     tineAccount: {
         flexDirection: 'row',
-        marginTop: 0.06 * windowHeight,
+        marginTop: 0.05 * windowHeight,
         justifyContent: 'center'
     },
     text1: {
