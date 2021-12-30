@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native'
 import styles from '../style/loginStyle'
+import auth from '@react-native-firebase/auth';
 
 const login = ({navigation}) => {
+    
+    const [email, setemail] = useState()
+    const [password, setpassword] = useState()
+
+    const login = async(email, password) => {
+        try{
+            await auth().signInWithEmailAndPassword(email, password);
+        } catch(e) {
+            console.log(e);
+        }
+    } 
+
     return (
         <View style = {styles.container}>
             <Image style = {styles.image} source = {require('../img/top.png')} resizeMode = 'contain'/>
@@ -17,17 +30,25 @@ const login = ({navigation}) => {
                 </View>
             </View>
             <View style = {styles.inputGroup}>
-                <TextInput style = {styles.emailInput} placeholder = 'Enter your email'/>
-                <TextInput style = {styles.passwordInput} placeholder = 'Enter your password'/>
+                <TextInput style = {styles.emailInput} placeholder = 'Enter your email'
+                    onChangeText = {(userEmail) => setemail(userEmail)} autoCapitalize = 'none'
+                />
+                <TextInput style = {styles.passwordInput} placeholder = 'Enter your password'
+                    onChangeText = {(userPassword) => setpassword(userPassword)} autoCapitalize = 'none'
+                />
                 <Text style = {styles.forgotPassword}>Forgot password</Text>
-                <TouchableOpacity style = {styles.signInButton} >
+                <TouchableOpacity style = {styles.signInButton} 
+                    onPress = {() => {
+                        login(email, password);
+                    }}
+                >
                     <Text style = {styles.signInText}>Sign in</Text>
                 </TouchableOpacity>
             </View>
             <View style = {styles.tineAccount}>
                 <Text style = {styles.text1}>Don't have an account ? </Text>
                 <Text style = {styles.text2} onPress={() => {
-                navigation.navigate('Register');
+                navigation.navigate('Register')
             }}>Sign up</Text>
             </View>
         </View>
